@@ -21,6 +21,7 @@ jobs:
         with:
           image: davidermias/simple-nodeci
           tags: v1, latest
+          registry: registry-url.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USER_NAME }}
           password: ${{ secrets.DOCKER_USER_PASS }}
