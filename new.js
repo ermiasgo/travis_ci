@@ -1,0 +1,1 @@
+console.log("This is to demonistrate CI push event action");
