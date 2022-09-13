@@ -15,5 +15,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker --version | docker build -t simple-nodeci . | docker tag simple-node davidermias/simple-nodeci
+      run: docker --version | docker build -t simple-nodeci . | docker tag simple-nodeci davidermias/simple-nodeci
      #run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
