@@ -15,9 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Check out code
-
-      - name: Build & push Docker image         
-        run: docker --version | docker build -t simple-nodeci . | docker images 
-        # tag simple-nodeci davidermias/simple-nodeci 
+      
+      - name: List Docker image         
+        run: docker --version | docker images
+      - name: Tag to Push to Dockerhub 
+        run: tag simple-nodeci davidermias/simple-nodeci 
+      - name: Build Docker Image
+        run: docker build -t simple-nodeci .
         # username: ${{ secrets.DOCKER_USER_NAME }}
         # password: ${{ secrets.DOCKER_USER_PASS }}
