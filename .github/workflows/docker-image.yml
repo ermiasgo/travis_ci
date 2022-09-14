@@ -15,16 +15,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Check out code
-      
-      - name: Build Docker Image
-        run: docker build -t simple-nodeci .
-      - name: Tag to Push to Dockerhub 
-        run: docker tag simple-nodeci davidermias/simple-nodeci 
-      - name: List Docker image         
-        run: docker --version | docker images
+
       -
         name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USER_NAME }}
           password: ${{ secrets.DOCKER_USER_AUTH_KEY }}
+
+      - name: Build Docker Image
+        run: docker build -t simple-nodeci .
+      - name: Tag to Push to Dockerhub 
+        run: docker tag simple-nodeci davidermias/simple-nodeci 
+      - name: List Docker image         
+        run: docker --version | docker images
+      - 
+        name: push docker image to registry
+        run:  docker push davidermias/simple-nodeci
