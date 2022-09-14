@@ -22,5 +22,9 @@ jobs:
         run: docker tag simple-nodeci davidermias/simple-nodeci 
       - name: List Docker image         
         run: docker --version | docker images
+      - name: Login to 
+        run: docker login --username=${secrets.DOCKER_USER_NAME} --password=${secrets.DOCKER_USER_PASS}
+      - name: Push Docker Image to docker HUB
+        run: Push 
         # username: ${{ secrets.DOCKER_USER_NAME }}
         # password: ${{ secrets.DOCKER_USER_PASS }}
